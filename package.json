@@ -1,22 +1,18 @@
 {
-  "name": "express-user-manager",
-  "version": "3.0.1",
-  "description": "A user management and authentication library for Express apps.",
-  "main": "src/index.js",
+  "name": "user-manager-service",
+  "version": "1.0.0",
+  "description": "A user management and authentication for Game streaming platform",
+  "main": "src/server/server.js",
   "scripts": {
+    "start": "node src/server/server.js"
   },
   "keywords": [
     "authentication",
     "authorization",
     "express",
-    "express-js",
     "login",
-    "login-system",
     "node",
-    "nodejs",
     "registration",
-    "user",
-    "user-management-system",
     "user-management"
   ],
   "author": "Abdelmoghit-IDH <abdelmoghit.idhsaine@gmail.com>",

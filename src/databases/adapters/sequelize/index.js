@@ -1,9 +1,6 @@
 const { Op, Sequelize } = require('sequelize');
 const createUserModel = require('./user-model');
 
-
-// we put this here, rather than make it a property of the class instance
-// to avoid accidentally overriding it outside the class
 let db = null;
 let User = null;
 
@@ -14,29 +11,6 @@ class SequelizeStore {
     this.toBoolean = convertToBoolean;
   }
 
-  /**
-   * Start a (MongoDB) DB server instance
-   * @param object with members:
-   *   - host {string} the db server host
-   *   - port {number} the db server port
-   *   - user {string} the db server username
-   *   - pass {string} the db server user password
-   *   - engine {string} the database engine to use
-   *       Possible values are: memory | mariadb | mssql | mysql | postgres | sqlite
-   *       Not required when using the `mongoose` adapter
-   *   - storagePath {string} The storage location when the `engine` is set to `postgres`.
-   *       The value is combined with the `dbName` option to set the storage: `${storagePath}/${dbName}.sqlite`
-   *   - dbName {string} the name of the database to connect to
-   *   - debug {boolean | number(int | 0)} determines whether or not to show debugging output
-   *   - exitOnFail {boolean} specifies whether to exit the program if DB connection fails
-   *
-   * Parameters can be supplied via different methods:
-   *  - By specifying the connection parameters as env variables
-   *     (e.g, using the .env file (default))
-   *  - By specifying them when calling the function (overrides the env variables)
-   *
-   * @return {resource} a (mongoose) connection instance
-   */
   async connect (options) {
     let sequelize = null;
     let {
@@ -123,16 +97,6 @@ class SequelizeStore {
     this.emit('dbDisconnect');
   }
 
-  /**
-   * @param object with members:
-   *   - firstname {string}
-   *   - lastname {string}
-   *   - email {string}
-   *   - username {string}
-   *   - password {string}
-   *
-   * @return object with members:
-   */
   async createUser(userData) {
     try {
       const onCreateData = await User.create(userData);
@@ -147,19 +111,6 @@ class SequelizeStore {
     }
   }
 
-  /**
-   * @param object with members:
-   *   - firstname {string} filter by users with matching firstnames (optional)
-   *   - lastname {string} get users with matching lastnames (optional)
-   *   - page {number} the page to return, for pagination purposes (optional, default 1)
-   *   - limit {number} the number of results to return, for pagination purposes (optional, default 20)
-   *   - sort {string} determines the sort order of returned users (optional)
-   *
-   * @return object with members:
-   *   - total {number} the total number of users that match the specified firstname and/or lastname filters
-   *   - length {number} the number of results returned for the current page and limit
-   *   - users {array} the actual list of returned users that match the search term
-   */
   async getUsers (options){
     options = options || {};
 
@@ -232,19 +183,6 @@ class SequelizeStore {
     };
   }
 
-  /**
-   * @param object with members:
-   *   - query {string} the search term (required)
-   *   - by {string} whether to search by firstname, lastname, username, email (optional, default searches by all)
-   *   - page {number} the page to return, for pagination purposes (optional, default 1)
-   *   - limit {number} the number of results to return, for pagination purposes (optional, default 20)
-   *   - sort {string} determines the sort order of returned users (optional)
-   *
-   * @return object with members:
-   *   - total {number} the total number of users that match the search term
-   *   - length {number} the number of results returned for the current page and limit
-   *   - users {array} the actual list of returned users that match the search term
-   */
   async searchUsers(options) {
     options = options || {};
     let { query, by = '', page = 1, limit = 20, sort = ''} = options;
