@@ -56,12 +56,14 @@ async function login(req, res, next) {
   req.session.user = user; // Maintain the user's data in current session
 
   // Create an auth token for the user so we can validate future requests
-  const { authTokenSecret, authTokenExpiry } = appModule.get('security') || {};
-  const tokenSecret = authTokenSecret || env.AUTH_TOKEN_SECRET;
-  const tokenExpiry = authTokenExpiry || env.AUTH_TOKEN_EXPIRY;
+
+  //const { authTokenSecret, authTokenExpiry } = appModule.get('security') || {};
+  //TODO: to change with token secret
+  const tokenSecret = "secret"; // authTokenSecret || env.AUTH_TOKEN_SECRET;
+  const tokenExpiry = "10h"; //authTokenExpiry || env.AUTH_TOKEN_EXPIRY;
   const kid = "231sp2JMLL6NCPFHLIozGub3w42FLQz2"; //TODO: to change to env var
   const { token, expiry } = generateAuthToken(
-    user.id, user.email, tokenSecret, eval(tokenExpiry) + 's', kid
+    user.id, user.email, tokenSecret, tokenExpiry, kid
   );
   const authorization = { token: `Bearer ${token}`, expiresIn: expiry };
 

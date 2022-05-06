@@ -13,10 +13,10 @@ const checkPassword = async (password, hashedPassword) => {
 const generateAuthToken = (userId, email, tokenSecret, tokenExpiry, kid) => {
   const authToken   = randomBytes(32).toString('hex');
   const tokenData   = { userId, email, authToken };
-  const signedToken = jwt.sign(tokenData, "tokenSecret", { //TODO: change 
+  const signedToken = jwt.sign(tokenData, tokenSecret, { //TODO: change 
     algorithm: "HS256",
-    expiresIn: "10h",
-    header: { kid: "kid" },
+    expiresIn: tokenExpiry,
+    header: { kid: kid },
   });
 
   return { token: signedToken, expiry: tokenExpiry };

@@ -36,8 +36,9 @@ async function authorized(req, res, next) {
       return res.status(statusCodes.unauthorized).json(responseData);
     }
 
-    const { authTokenSecret } = appModule.get('security') || {};
-    const tokenSecret = authTokenSecret || env.AUTH_TOKEN_SECRET;
+    //const { authTokenSecret } = appModule.get('security') || {};
+    //TODO: to change with token secret
+    const tokenSecret = "secret"; //authTokenSecret || env.AUTH_TOKEN_SECRET; 
     const decoded = decodeAuthToken(bearerToken, tokenSecret);
 
     if(!decoded) {
