@@ -6,7 +6,7 @@ const app = express();
 const store = userModule.getDbAdapter("sequelize");
 
 // Bind the routes under [apiMountPoint] (default: ***/api/users***):
-userModule.listen(app, (apiMountPoint = "/api/users"), (customRoutes = {}));
+userModule.listen(app, (apiMountPoint = "/api/auth"), (customRoutes = {}));
 
 (async function () {
   const server = http.createServer(app);

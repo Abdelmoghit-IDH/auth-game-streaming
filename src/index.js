@@ -164,7 +164,7 @@ function getDbAdapter(adapter) {
 
 
 
-function listen(app, baseApiRoute = '/api/users', customRoutes = {}) {
+function listen(app, baseApiRoute = '/api/auth', customRoutes = {}) {
   debug('Setting up routing...');
 
   baseApiRoute = typeof baseApiRoute === 'string'

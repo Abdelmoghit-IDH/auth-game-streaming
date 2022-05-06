@@ -1,10 +1,10 @@
 const baseApiRoute = '/api/users';
 const apiPaths = {
-  list: '/',
+  list: '/list',
   search: '/search',
   getUser: '/user',
-  signup: '/',
-  login: '/login',
+  signup: '/signup',
+  login: '/signin',
   logout: '/logout',
   updateUser: '/',
   deleteUser: '/user',
