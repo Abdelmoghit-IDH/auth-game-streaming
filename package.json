@@ -4,21 +4,6 @@
   "description": "A user management and authentication library for Express apps.",
   "main": "src/index.js",
   "scripts": {
-    "serve": "node ./src/server/index.js",
-    "serve:watch": "nodemon ./src/server/index.js",
-    "commit": "git-cz",
-    "lint": "./node_modules/.bin/eslint ./src",
-    "lint:fix": "npm run lint -- --fix",
-    "codecov": "codecov",
-    "draft-release": "npm run lint:fix && standard-version",
-    "draft-release:simulate": "npm run draft-release -- --dry-run",
-    "view-readme": "./node_modules/.bin/markdown-viewer -b",
-    "view-contributing": "./node_modules/.bin/markdown-viewer -f CONTRIBUTING.md -b",
-    "view-license": "./node_modules/.bin/markdown-viewer -f LICENSE.md -b"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/simplymichael/express-user-manager.git"
   },
   "keywords": [
     "authentication",
@@ -34,37 +19,8 @@
     "user-management-system",
     "user-management"
   ],
-  "author": "simplymichael <simplymichaelorji@gmail.com> (https://github.com/simplymichael)",
+  "author": "Abdelmoghit-IDH <abdelmoghit.idhsaine@gmail.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/simplymichael/express-user-manager/issues"
-  },
-  "homepage": "https://github.com/simplymichael/express-user-manager#readme",
-  "devDependencies": {
-    "chai": "4.2.0",
-    "chai-as-promised": "7.1.1",
-    "chai-http": "4.3.0",
-    "chai-spies": "1.0.0",
-    "codecov": "3.8.1",
-    "commitizen": "4.2.2",
-    "cz-conventional-changelog": "3.3.0",
-    "eslint": "7.13.0",
-    "ghooks": "2.0.4",
-    "markdown-viewer": "1.0.1",
-    "mocha": "8.2.1",
-    "node-fetch": "2.6.1",
-    "nyc": "15.1.0",
-    "run-script-os": "1.1.3",
-    "standard-version": "9.0.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    },
-    "ghooks": {
-      "pre-commit": "npm run lint && npm run test:coverage"
-    }
-  },
   "dependencies": {
     "bcrypt": "5.0.0",
     "cookie-parser": "1.4.5",
@@ -76,7 +32,6 @@
     "jsonwebtoken": "8.5.1",
     "morgan": "1.10.0",
     "mysql2": "2.2.5",
-    "nodemon": "2.0.6",
     "pg": "8.5.1",
     "pg-hstore": "2.3.3",
     "random-bytes": "1.0.0",
