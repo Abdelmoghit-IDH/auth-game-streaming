@@ -1,0 +1,16 @@
+# Coverage directory
+/coverage
+.nyc_output
+
+# Dependency directory
+node_modules
+test-directory/
+
+# production
+/build
+
+# misc
+.env
+.data
+.DS_Store
+.markdown-viewer
