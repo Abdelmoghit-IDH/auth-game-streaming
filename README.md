@@ -19,8 +19,6 @@ Additional features include:
 - customization of the minimum and maximum length of passwords
 - specification of non-secure passwords that should not be allowed for use as passwords
 
-**New in V3.0.0**: Support for [Hooks](#hooks)
-
 #### API endpoints object properties
 As seen above, the default object has a number of properties, each corresponding to a request path:
 - **list** : Specifies the path to get users listing
@@ -34,33 +32,12 @@ As seen above, the default object has a number of properties, each corresponding
 - **deleteUser** : Specifies the path for deleting user by id
 (a `/:userId` is automatically appended to the end of this route)
 
-## Built-in middlewares
-The **userManager** module provides some middlewares.
-You can get them by calling: `userManager.get('middlewares');`.
-This will return an object with the following middlewares:
-- **authorized**:
-  For protected resources.
-  It ensures an access/authorization token is sent along with the request
-  using the ***Authorization*** header.
-- **loadUser**:
-  Loads the current user (identified by *username*) into the request,
-  to that it is available to every other middleware in the middleware chain.
-  The username is sent as part of the request parameters (*request.params*)
-- **loggedIn**:
-  Ensures a user is logged in before they can perform the requested action.
-- **notLoggedIn**
-  Ensures that the target action is available only to users who are not logged in.
-  For example, registration and login should (normally) not be permissible
-  if the current user is already logged in.
-- **restrictUserToSelf**:
-  Constrains a user to performing certain actions only on their own account.
-
 ## Requests and responses
 Every route below is assumed to begin (i.e., prefixed) with the base API route (or mount point).
-The default base API route is **`/api/users`**.
+The default base API route is **`/api/auth`**.
 
-- **Create user**
-    - route: `POST /`
+- **Sign Up**
+    - route: `POST /signup`
     - protected: `false`
     - request headers: none
     - request parameters: none
@@ -88,7 +65,7 @@ The default base API route is **`/api/users`**.
       }
       ```
 - **Retrieve list of users**
-    - route: `GET /`
+    - route: `GET /list`
     - protected: `false`
     - request headers: none
     - request parameters:
@@ -140,18 +117,18 @@ The default base API route is **`/api/users`**.
     - examples:  
         - Search for users with **james** in their firstname, lastname, username, or email:
 
-          `GET HOST:PORT/api/users/search?query=james`
+          `GET HOST:PORT/api/auth/search?query=james`
         - Search for users with **james** in their username or email:
 
-          `GET HOST:PORT/api/users/search?query=james&by=username:email`
+          `GET HOST:PORT/api/auth/search?query=james&by=username:email`
         - Sort by firstname (asc), lastname (asc), email (desc), creationDate (asc):
 
-          `GET HOST:PORT/api/users/search?query=james&sort=firstname:asc=lastname=email:desc=creationDate`
+          `GET HOST:PORT/api/auth/search?query=james&sort=firstname:asc=lastname=email:desc=creationDate`
         - Return the 3rd page of results and limit returned results to a maximum of 15 users:
 
-          `GET HOST:PORT/api/users/search?query=james&page=3&limit=15`
-- **Login**
-    - route: `POST /login`
+          `GET HOST:PORT/api/auth/search?query=james&page=3&limit=15`
+- **Sign In**
+    - route: `POST /signin`
     - protected: `false`
     - request headers: none
     - request parameters: none
@@ -182,7 +159,7 @@ The default base API route is **`/api/users`**.
     - request parameters: none
     - response: `{}`
 - **Update user data**
-    - route: `PUT /`
+    - route: `PUT /update`
     - protected: `true`
     - request headers:
       ```javascript
