@@ -1,8 +1,8 @@
 # User management-game-streaming
 
-A user management and authentication library for Express apps.
+A user management and authentication for Express apps.
 
-It automatically creates and adds the following API endpoints to an Express app:
+The available API endpoints to an Express app:
 
 - user registration
 - user login
@@ -12,13 +12,6 @@ It automatically creates and adds the following API endpoints to an Express app:
 - user searching
 - user data update
 - user account deletion
-
-Additional features include:
-
-- customizable API endpoints
-- support for multiple database engines and data-storage mechanisms
-- customization of the minimum and maximum length of passwords
-- specification of non-secure passwords that should not be allowed for use as passwords
 
 #### API endpoints object properties
 As seen above, the default object has a number of properties, each corresponding to a request path:
@@ -35,7 +28,6 @@ As seen above, the default object has a number of properties, each corresponding
 
 ## Requests and responses
 Every route below is assumed to begin (i.e., prefixed) with the base API route (or mount point).
-The default base API route is **`/api/auth`**.
 
 - **Sign Up**
     - route: `POST /signup`
