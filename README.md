@@ -1,4 +1,5 @@
-# Express User Manager
+# authentication-game-streaming
+
 A user management and authentication library for Express apps.
 
 It automatically creates and adds the following API endpoints to an Express app:
