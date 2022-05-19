@@ -46,8 +46,9 @@ async function authorized(req, res, next) {
       return res.status(statusCodes.unauthorized).json(responseData);
     }
 
-    const { userId, email } = decoded;
-
+    userId = decoded.id;
+    email = decoded.email;
+    
     if(req.session.user.id !== userId || req.session.user.email !== email) {
       emit('authorizationError', responseData);
       return res.status(statusCodes.unauthorized).json(responseData);

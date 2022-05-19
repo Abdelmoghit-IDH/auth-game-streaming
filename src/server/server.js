@@ -20,7 +20,7 @@ userModule.listen(app, (apiMountPoint = "/api/auth"), (customRoutes = {}));
     pass: "AVNS_o_FsLJJT8ZBvGHz",
     engine: "MySQL",
     dbName: "defaultdb",
-    debug: true,
+    debug: false,
   });
 
   // set port, listen for requests
