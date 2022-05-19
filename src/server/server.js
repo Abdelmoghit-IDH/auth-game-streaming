@@ -14,13 +14,13 @@ userModule.listen(app, (apiMountPoint = "/api/auth"), (customRoutes = {}));
   // Establish a connection to the data store
   // Ensure the db is connected before binding the server to the port
   await store.connect({
-    host: "authentication-db-do-user-9691578-0.b.db.ondigitalocean.com",
+    host: "users-do-user-11618473-0.b.db.ondigitalocean.com",
     port: "25060",
     user: "doadmin",
-    pass: "AVNS_UNRVvhaZH8MgR6X",
+    pass: "AVNS_o_FsLJJT8ZBvGHz",
     engine: "MySQL",
     dbName: "defaultdb",
-    debug: false,
+    debug: true,
   });
 
   // set port, listen for requests

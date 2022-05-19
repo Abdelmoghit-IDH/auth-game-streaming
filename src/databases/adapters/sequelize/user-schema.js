@@ -32,7 +32,11 @@ const userSchema = {
   password: {
     type: DataTypes.STRING,
     allowNull: false
-  }
+  },
+  isAdmin: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false
+  },
 };
 
 module.exports = userSchema;

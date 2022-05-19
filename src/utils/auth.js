@@ -10,9 +10,9 @@ const checkPassword = async (password, hashedPassword) => {
   return await bcrypt.compare(password, hashedPassword);
 };
 
-const generateAuthToken = (userId, email, tokenSecret, tokenExpiry, kid) => {
+const generateAuthToken = (userId, email, isAdmin, tokenSecret, tokenExpiry, kid) => {
   const authToken   = randomBytes(32).toString('hex');
-  const tokenData   = { userId, email, authToken };
+  const tokenData   = { userId, email, isAdmin, authToken };
   const signedToken = jwt.sign(tokenData, tokenSecret, { //TODO: change 
     algorithm: "HS256",
     expiresIn: tokenExpiry,

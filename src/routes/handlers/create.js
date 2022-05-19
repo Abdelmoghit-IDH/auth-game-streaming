@@ -51,6 +51,7 @@ async function createUser(req, res, next) {
   }
 
   const user = {};
+  const isAdmin= false;
   const hashedPassword = await hashPassword(password);
   const data = await store.createUser({
     firstname,
@@ -58,6 +59,7 @@ async function createUser(req, res, next) {
     email,
     username,
     password: hashedPassword,
+    isAdmin
   });
 
   // Populate the user variable with values we want to return to the client

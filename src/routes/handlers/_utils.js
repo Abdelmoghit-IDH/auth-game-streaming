@@ -8,7 +8,7 @@ const hooks = require('../../utils/hooks');
 // or when user data is requested
 const publicFields = [
   'id', 'firstname', 'lastname', 'fullname',
-  'email', 'username', 'signupDate'
+  'email', 'username', 'signupDate','isAdmin'
 ];
 
 module.exports = {
