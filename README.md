@@ -46,7 +46,7 @@ The default base API route is **`/api/auth`**.
       ```javascript
       {
         "data": {
-          "user": { id, firstname, lastname, fullname, email, username, signupDate }
+          "user": { id, firstname, lastname, fullname, email, username, signupDate, isAdmin }
         }
       }
       ```
@@ -60,7 +60,7 @@ The default base API route is **`/api/auth`**.
       ```javascript
       {
         "data": {
-          "user": { id, firstname, lastname, fullname, email, username, signupDate }
+          "user": { id, firstname, lastname, fullname, email, username, signupDate, isAdmin }
         }
       }
       ```
