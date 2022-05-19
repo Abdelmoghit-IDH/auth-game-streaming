@@ -1,4 +1,4 @@
-# authentication-game-streaming
+# User management-game-streaming
 
 A user management and authentication library for Express apps.
 
